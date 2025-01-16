@@ -1,0 +1,16 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_ThirdPersonCharacter1.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_FirstPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_FirstNPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_SimpleNPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Controller/IA_ControllerSimpleNPC.uasset"
+			]
+		}
+	]
+}
