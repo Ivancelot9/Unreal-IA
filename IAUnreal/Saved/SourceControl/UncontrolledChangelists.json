@@ -5,11 +5,22 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_ThirdPersonCharacter1.uasset",
-				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_FirstPC.uasset",
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_FirstNPC.uasset",
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_SimpleNPC.uasset",
-				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Controller/IA_ControllerSimpleNPC.uasset"
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Controller/IA_ControllerSimpleNPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Characters/Mannequins/Animations/ABP_Manny.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/9/YK/VPP3MDT2VJ6R3GFMBDG0YT.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/1F/UC60V6Z47QZ8EVSA8RRQ8G.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Task/BTask_MoveToRandomLocation.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/Blackboard/BB_SampleNPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/BehaviorThrees/BT_SampleNPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Controller/AI_Controller_PerceptionNPC.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/S7/M52M7S6G87RPQSO2NRORDM.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/33/NHUVVHCMNSR3YSO3OTV5SN.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/AD/HJGIEA4RHHQXKR8DSV85RN.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/PA/QB9782SXHWFJDB3A3ZZK5X.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_ThirdPersonCharacter1.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_FirstPC.uasset"
 			]
 		}
 	]
