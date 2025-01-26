@@ -20,6 +20,15 @@
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/AD/HJGIEA4RHHQXKR8DSV85RN.uasset",
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/PA/QB9782SXHWFJDB3A3ZZK5X.uasset",
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/Decorators/BTDecorator_CheckScale.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Task/BTTask_ClearBlackboardValue.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Characters/Mannequins/Animations/Manny/MM_Land.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/Actors/IAObject_PatrolPath.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/Actors/IA_Behavior.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/IW/Y3HWZQZJOMEWZCAUB0USQT.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/RX/S8IPH2DDRI3HPR3SHQMPO0.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/CI/1B44I16Y0CM6VLCSMOC3WI.uasset",
+				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Task/BTTask_Patrol.uasset",
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_ThirdPersonCharacter1.uasset",
 				"D:/Unreal/Unreal-IA/IAUnreal/Content/Blueprintss/IA_Character/BP_FirstPC.uasset"
 			]
