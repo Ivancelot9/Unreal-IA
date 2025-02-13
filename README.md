@@ -65,5 +65,7 @@ Antes de ejecutar el proyecto, asegúrate de cumplir con los siguientes requisit
 
 ---
 
-## 📂 **Estructura del Proyecto**  
-
+## 🎮 **Cómo probar el proyecto**  
+1️⃣ Clona el repositorio:  
+```bash
+git clone https://github.com/TIvancelot9/Unreal-IA.git
