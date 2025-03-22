@@ -15,6 +15,11 @@
 
 ✨ Además, se integró el sistema **EQS (Environment Query System)** para permitir que la IA seleccione ubicaciones óptimas en el entorno al tomar decisiones dinámicas basadas en el escenario.  
 
+🧊 También se implementó una lógica inspirada en los **Weeping Angels de Doctor Who**:  
+- La IA solo se mueve hacia su objetivo (la piedra) cuando el jugador no la está mirando.  
+- Si el jugador la está mirando, se ejecuta la tarea `BTTask_DetenerNPC` que detiene su movimiento.  
+- Esta lógica se maneja en el Behavior Tree con un **Selector** y un **Blackboard Decorator** (`PuedeMoverse`), que se activa cuando la IA no es vista por el jugador.  
+
 Todo el sistema está construido con **Blueprints**, sin necesidad de usar C++.  
 
 ---
@@ -27,6 +32,7 @@ Todo el sistema está construido con **Blueprints**, sin necesidad de usar C++.
    - `BTTask_FindRock`: Encuentra la piedra y la guarda en Blackboard.  
    - `BTTask_MoveToRock`: Se mueve a la piedra.  
    - `BTTask_PickUpRock` (opcional): La oculta y marca que fue recogida.  
+   - `BTTask_DetenerNPC`: Detiene el movimiento de la IA cuando el jugador la observa.  
 ✅ Utilizar **EQS (Environment Query System)** para que la IA evalúe el entorno al tomar decisiones.  
 ✅ Utilizar **Animaciones** para mejorar la inmersión.  
 
@@ -42,6 +48,7 @@ Todo el sistema está construido con **Blueprints**, sin necesidad de usar C++.
 | 📌 **Blackboard** | Permite almacenar y gestionar datos para la IA. |
 | 🔄 **BTTasks** | Tareas personalizadas en Blueprint que definen acciones de IA. |
 | 🧭 **EQS (Environment Query System)** | Sistema para que la IA consulte el entorno y tome decisiones según ubicaciones óptimas. |
+| 🕵️ **Weeping Angel Logic** | Sistema que detiene el movimiento de la IA si el jugador la está mirando. |
 | 🏃 **Animaciones** | Integración de animaciones para mejorar el realismo. |
 
 ---
@@ -72,10 +79,12 @@ Todo el sistema está construido con **Blueprints**, sin necesidad de usar C++.
 3. ✈ Si está en rojo, espera. Si está en verde, cruza.
 4. Se repite el proceso.
 
-### 🧠 Sistema de Buscadora de Piedra
+### 🧠 Sistema de Buscadora de Piedra + Lógica de Weeping Angel
 1. La IA ejecuta `BTTask_FindRock` para guardar la referencia de la piedra en Blackboard.
-2. Ejecuta `BTTask_MoveToRock` y se mueve hacia la piedra con `AI MoveTo`.
-3. Al llegar, puede ejecutar `BTTask_PickUpRock`, que la oculta y marca `HasRock = true`.
+2. El Behavior Tree evalúa si `PuedeMoverse == true` (jugador no la está viendo):
+   - Si es verdadero, se ejecuta `BTTask_MoveToRock`.
+   - Si es falso, se ejecuta `BTTask_DetenerNPC` que frena a la IA. 
+3. Al llegar a la piedra, puede ejecutar `BTTask_PickUpRock`, que la oculta y marca `HasRock = true`.
 
 Además, mediante **EQS**, la IA puede seleccionar ubicaciones óptimas para posicionarse o planear rutas en función del entorno.
 
