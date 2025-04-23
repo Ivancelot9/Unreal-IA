@@ -1,116 +1,102 @@
-# 🤖 Unreal-IA: Inteligencia Artificial en Unreal Engine 5  
+# 🤖 Unreal-IA: Inteligencia Artificial en Unreal Engine 5
 
-🚀 **Unreal-IA** es un proyecto educativo diseñado para enseñarte a implementar **IA en Unreal Engine** utilizando distintas herramientas como **Controladores, Behavior Trees, Blackboards, Tasks, EQS y Animaciones**.  
+🚀 **Unreal-IA** es un proyecto educativo diseñado para enseñarte a implementar **IA en Unreal Engine** utilizando herramientas como **Controladores, Behavior Trees, Blackboards, Tasks, EQS, Smart Objects y Animaciones**.
 
-📍 En este proyecto, se han desarrollado dos sistemas diferentes de IA:  
+## 📌 Sistemas implementados
 
-### ✅ Sistema 1: **Peatones inteligentes con semáforo**  
-- 🚦 **Rojo**: El peatón **espera** antes de cruzar.  
-- 🚦 **Verde**: El peatón **avanza** y cruza la calle.  
+### ✅ Sistema 1: Peatones inteligentes con semáforo
+- 🚦 **Rojo**: El peatón espera antes de cruzar.
+- 🚦 **Verde**: El peatón avanza y cruza la calle.
 
-### ✅ Sistema 2: **IA Buscadora de Piedra**  
-- 🔍 La IA **localiza una piedra en el entorno** (solo una disponible en la escena).  
-- 🌄 Se **mueve hasta ella** usando `AI MoveTo`.  
-- 🪨 (Opcional) La IA **recoge la piedra** y se marca una condición en Blackboard (`HasRock = true`).  
+### ✅ Sistema 2: IA Buscadora de Piedra
+- 🔍 La IA localiza una piedra en el entorno (una sola en escena).
+- 🌄 Se mueve hasta ella usando `AI MoveTo`.
+- 🧠 Usa un **Smart Object** para ejecutar una animación (ej. recoger piedra):
+  - Filtra Smart Objects por **Gameplay Tag** (`SOC.standInteraction`).
+  - Si encuentra uno válido, guarda el `ClaimHandle` y `TargetLocation` en el Blackboard.
+  - Luego ejecuta `BTTask_UseSmartObject`, que reproduce la animación definida.
+- 🪨 Al terminar, se marca `HasRock = true` en el Blackboard.
 
-✨ Además, se integró el sistema **EQS (Environment Query System)** para permitir que la IA seleccione ubicaciones óptimas en el entorno al tomar decisiones dinámicas basadas en el escenario.  
+✨ Además, se implementó **EQS (Environment Query System)** para seleccionar ubicaciones óptimas en el entorno.
 
-🧊 También se implementó una lógica inspirada en los **Weeping Angels de Doctor Who**:  
-- La IA solo se mueve hacia su objetivo (la piedra) cuando el jugador no la está mirando.  
-- Si el jugador la está mirando, se ejecuta la tarea `BTTask_DetenerNPC` que detiene su movimiento.  
-- Esta lógica se maneja en el Behavior Tree con un **Selector** y un **Blackboard Decorator** (`PuedeMoverse`), que se activa cuando la IA no es vista por el jugador.  
+🧊 Lógica adicional tipo **Weeping Angel**:
+- La IA solo se mueve cuando el jugador **no la mira**.
+- Si el jugador la mira, se activa `BTTask_DetenerNPC` que detiene su movimiento.
+- Controlado mediante un **Selector** y un **Blackboard Decorator** (`PuedeMoverse`).
 
-Todo el sistema está construido con **Blueprints**, sin necesidad de usar C++.  
+> 🔧 Todo el sistema fue construido **exclusivamente con Blueprints**.
 
 ---
 
-## 🎯 **Objetivos**  
-✅ Aprender sobre **AI Controllers** y cómo manejan NPCs.  
-✅ Usar **Behavior Trees** para definir comportamientos avanzados.  
-✅ Integrar **Blackboards** para almacenar información dinámica.  
-✅ Implementar **Tasks personalizadas** (BTTasks) como:  
-   - `BTTask_FindRock`: Encuentra la piedra y la guarda en Blackboard.  
-   - `BTTask_MoveToRock`: Se mueve a la piedra.  
-   - `BTTask_PickUpRock` (opcional): La oculta y marca que fue recogida.  
-   - `BTTask_DetenerNPC`: Detiene el movimiento de la IA cuando el jugador la observa.  
-✅ Utilizar **EQS (Environment Query System)** para que la IA evalúe el entorno al tomar decisiones.  
-✅ Utilizar **Animaciones** para mejorar la inmersión.  
+## 🎯 Objetivos
+
+- ✅ Aprender sobre `AIController` y cómo manejar NPCs.
+- ✅ Definir comportamientos con `Behavior Trees`.
+- ✅ Usar `Blackboards` para almacenar datos del entorno.
+- ✅ Implementar `BTTasks` personalizadas:
+  - `BTTask_FindRock`: Encuentra la piedra.
+  - `BTTask_MoveToRock`: Se mueve hacia ella.
+  - `BTTask_PickUpRock`: Usa un Smart Object para recogerla.
+  - `BTTask_UseSmartObject`: Ejecuta la animación definida.
+  - `BTTask_DetenerNPC`: Detiene al NPC si el jugador lo observa.
+- ✅ Utilizar `EQS` para tomar decisiones según el entorno.
+- ✅ Ejecutar animaciones contextuales usando Smart Objects.
 
 ---
 
 ## 🛠️ Tecnologías y Herramientas Utilizadas
 
-| 🛠️ Herramienta | 🚀 Descripción |
-|---------------|-------------|
-| 🎮 **Unreal Engine 5** | Motor de juego utilizado para desarrollar el proyecto. |
-| 🧠 **AI Controller** | Controla el comportamiento de los NPCs. |
-| 🌳 **Behavior Trees** | Sistema de árbol de decisiones para la IA. |
-| 📌 **Blackboard** | Permite almacenar y gestionar datos para la IA. |
-| 🔄 **BTTasks** | Tareas personalizadas en Blueprint que definen acciones de IA. |
-| 🧭 **EQS (Environment Query System)** | Sistema para que la IA consulte el entorno y tome decisiones según ubicaciones óptimas. |
-| 🕵️ **Weeping Angel Logic** | Sistema que detiene el movimiento de la IA si el jugador la está mirando. |
-| 🏃 **Animaciones** | Integración de animaciones para mejorar el realismo. |
+| Herramienta              | Descripción                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| 🎮 Unreal Engine 5       | Motor de desarrollo principal.                                              |
+| 🧠 AI Controller          | Controlador de comportamiento para NPCs.                                   |
+| 🌳 Behavior Trees        | Árbol de decisiones.                                                        |
+| 📌 Blackboard             | Memoria compartida para tareas de IA.                                      |
+| 🔄 BTTasks                | Acciones personalizadas definidas en Blueprint.                            |
+| 🧭 EQS                    | Sistema de consultas del entorno.                                           |
+| 🧊 Smart Objects          | Objetos interactivos con lógica modular (animaciones, interacciones, etc). |
+| 🕵️ Weeping Angel Logic   | Detención de IA cuando es observada.                                        |
+| 🏃 Animaciones            | Mejoran el realismo durante las interacciones.                             |
 
 ---
 
-## 📋 Requisitos del Sistema
+## 💻 Requisitos del Sistema
 
-### 🎮 Software Necesario
-✅ **Unreal Engine 5** (recomendado: última versión estable).  
-✅ **Git** para clonar el repositorio.  
+### Software necesario
+- ✅ Unreal Engine 5 (última versión estable recomendada)
+- ✅ Git (para clonar el repositorio)
+- 🔧 Visual Studio 2022 (opcional, si se quiere usar C++)
 
-💻 **Opcional (si decides agregar código en C++ en el futuro):**  
-✅ **Visual Studio 2022** con los módulos de desarrollo para Unreal.  
-
-### 💻 Especificaciones Mínimas
-- Procesador: Intel i5-8400 / AMD Ryzen 5 2600  
-- RAM: 16GB  
-- Gráfica: NVIDIA GTX 1060 / AMD RX 580 (o superior)  
-- Espacio en disco: 20GB disponibles  
-- Sistema Operativo: Windows 10 / 11 (64 bits)  
+### Especificaciones mínimas
+- CPU: Intel i5-8400 / AMD Ryzen 5 2600
+- RAM: 16 GB
+- GPU: NVIDIA GTX 1060 / AMD RX 580
+- Disco: 20 GB libres
+- OS: Windows 10/11 (64-bit)
 
 ---
 
-## 🎮 ¿Cómo funciona cada sistema de IA?
+## 🧪 ¿Cómo funciona cada sistema?
 
 ### ⚡ Sistema de Peatones
 1. El NPC selecciona un destino.
-2. Si se encuentra cerca de un cruce, consulta el estado del semáforo.
-3. ✈ Si está en rojo, espera. Si está en verde, cruza.
-4. Se repite el proceso.
+2. Consulta el estado del semáforo.
+3. Si está en rojo, espera. Si está en verde, cruza.
+4. Repite el ciclo.
 
 ### 🧠 Sistema de Buscadora de Piedra + Lógica de Weeping Angel
-1. La IA ejecuta `BTTask_FindRock` para guardar la referencia de la piedra en Blackboard.
-2. El Behavior Tree evalúa si `PuedeMoverse == true` (jugador no la está viendo):
-   - Si es verdadero, se ejecuta `BTTask_MoveToRock`.
-   - Si es falso, se ejecuta `BTTask_DetenerNPC` que frena a la IA. 
-3. Al llegar a la piedra, puede ejecutar `BTTask_PickUpRock`, que la oculta y marca `HasRock = true`.
+1. `BTTask_FindRock` guarda la referencia de la piedra.
+2. Si `PuedeMoverse == true`, ejecuta `BTTask_MoveToRock`; si no, se detiene con `BTTask_DetenerNPC`.
+3. Al llegar, ejecuta `BTTask_PickUpRock`, que:
+   - Usa un `Smart Object` para animar la recolección.
+   - Marca `HasRock = true`.
 
-Además, mediante **EQS**, la IA puede seleccionar ubicaciones óptimas para posicionarse o planear rutas en función del entorno.
-
-Todo gestionado con un Behavior Tree y Blackboard completamente hechos en Blueprint.
+Todo el flujo se gestiona en Blueprint con soporte de EQS y decoradores condicionales.
 
 ---
 
-## 🎮 Cómo probar el proyecto
+## 🚀 Cómo ejecutar el proyecto
 
 1. Clona el repositorio:
 ```bash
 git clone https://github.com/TIvancelot9/Unreal-IA.git
-```
-
-2. Abre el proyecto .uproject en Unreal Engine 5
-3. Ejecuta desde el mapa principal
-4. Interactúa con los sistemas de IA en acción
-
----
-
-## 📷 Recursos Entregables
-- 📅 Ejecutable (.exe empaquetado)
-- 📄 Capturas del sistema en funcionamiento
-- 🎥 Video de gameplay
-- 📁 Repositorio con el proyecto completo
-
----
-
-📈 Proyecto creado con fines educativos para demostrar el uso de IA en Unreal Engine 5 utilizando Blueprints ✨
